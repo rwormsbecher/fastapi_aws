@@ -32,7 +32,7 @@ jobs:
 
       - name: Activate Virtual env & install dependencies
         run: python -m venv venv && source venv/bin/activate && pip4 install -r requirements.txt
-        if: steps.cache-venv.outputs.cache-hit !- 'true'
+        if: steps.cache-venv.outputs.cache-hit != 'true'
 
       - name: Run tests
         run: . venv/bin/activate && pytest
